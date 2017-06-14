@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>nghttp</title>
+  <script src="/vendors/angular.min.js" charset="utf-8"></script>
+  <script src="/scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body ng-app="myApp" ng-cloak>
+  <h1>$httpIntro</h1>
+  <div ng-controller='GiphyActivity as ga' ng-init="ga.onReady();" class="container">
+    <div class="row">
+      <input ng-model="ga.search">
+      <button ng-click="ga.getGifs()">get songs the other way</button>
+    </div>
+    <div class="row">
+      <div class="col-md-3" ng-repeat=" x in ga.searchResult">
+        <img ng-src="{{x.images.downsized.url}}">
+      </div>
+    </div>
+</body>
+
+</html>
