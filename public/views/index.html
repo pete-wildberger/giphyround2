@@ -16,22 +16,24 @@
     <div class="row">
       <div class="col-md-12">
         <div id="buttonGroup">
-        <button class="search" ng-click="ga.getRando()">RANDOM GIF</button>
-        <form name="search">
-          <input ng-model="ga.search" type="text" required>
-          <button class="search" ng-click="ga.getGifs()" ng-disabled="search.$invalid">Search</button>
-        </form>
-      </div>
+          <button class="search" ng-click="ga.getRando()">RANDOM GIF</button>
+          <form name="search">
+            <input ng-model="ga.search" type="text" required>
+            <button class="search" ng-click="ga.getGifs()" ng-disabled="search.$invalid">Search</button>
+          </form>
+        </div>
       </div>
     </div>
     <div ng-show='ga.showRando' class="row">
       <div class="col-md-3">
         <img class="result" ng-src="{{ga.searchResult.image_url}}">
+        <button class="search"  ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
     <div ng-hide='ga.showRando' class="row">
       <div class="col-md-3" ng-repeat=" x in ga.searchResult">
         <img class="result" ng-src="{{x.images.downsized.url}}">
+        <button class="search"  ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
 </body>

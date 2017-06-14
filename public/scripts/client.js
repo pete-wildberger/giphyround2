@@ -49,5 +49,8 @@ function GiphyActivity($http) {
 
     });
   };
+  vm.removeRow = function(index) {
+    vm.searchResult.splice(index, 1);
+  };
 
 } //end controller function
