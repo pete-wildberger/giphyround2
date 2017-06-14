@@ -14,12 +14,20 @@
   <h1>$httpIntro</h1>
   <div ng-controller='GiphyActivity as ga' ng-init="ga.onReady();" class="container">
     <div class="row">
-      <input ng-model="ga.search">
-      <button ng-click="ga.getGifs()">get songs the other way</button>
+      <button ng-click="ga.getRando()">RANDOM GIF</button>
+      <form name="search">
+      <input  ng-model="ga.search" type="text" required>
+    </form>
+      <button ng-click="ga.getGifs()" ng-disabled="search.$invalid">Search</button>
+    </div>
+    <div class="row">
+      <div class="col-md-3" >
+        <img class="result" ng-src="{{ga.searchResult.image_url}}">
+      </div>
     </div>
     <div class="row">
       <div class="col-md-3" ng-repeat=" x in ga.searchResult">
-        <img ng-src="{{x.images.downsized.url}}">
+        <img class="result" ng-src="{{x.images.downsized.url}}">
       </div>
     </div>
 </body>

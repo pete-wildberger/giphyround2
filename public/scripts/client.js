@@ -19,6 +19,17 @@ function GiphyActivity($http) {
     //     console.log('back with', response);
     //   });//end http
   }; // startup
+  vm.getRando = function(){
+    // var searchURL = 'http://api.giphy.com/v1/gifs/search?q=';
+    // searchURL += 'random';
+    // searchURL += '&api_key=dc6zaTOxFJmzC';
+    // console.log('random GET');
+
+    $http.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=').then(function(response) {
+      console.log('back with: ', response);
+      vm.searchResult = response.data.data;
+  });//end get
+};//end getRando
 
   vm.getGifs = function() {
     var searchURL = 'http://api.giphy.com/v1/gifs/search?q=';
