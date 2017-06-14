@@ -6,6 +6,7 @@
   <title>nghttp</title>
   <script src="/vendors/angular.min.js" charset="utf-8"></script>
   <script src="/scripts/client.js" charset="utf-8"></script>
+  <script src="/scripts/services/get.service.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/vendors/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
@@ -16,7 +17,7 @@
     <div class="row">
       <div class="col-md-12">
         <div id="buttonGroup">
-          <button class="search" ng-click="ga.getRando()">RANDOM GIF</button>
+          <button class="search" ng-click="ga.displayRando()">RANDOM GIF</button>
           <form name="search">
             <input ng-model="ga.search" type="text" required>
             <button class="search" ng-click="ga.getGifs()" ng-disabled="search.$invalid">Search</button>
