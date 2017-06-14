@@ -7,7 +7,7 @@ app.controller('GiphyActivity', GiphyActivity);
 function GiphyActivity($http) {
   var vm = this;
   console.log('controller is loaded');
-
+  vm.showRando = false;
   vm.onReady = function() {
 
     //   console.log('startup');
@@ -19,19 +19,25 @@ function GiphyActivity($http) {
     //     console.log('back with', response);
     //   });//end http
   }; // startup
-  vm.getRando = function(){
+  vm.getRando = function() {
     // var searchURL = 'http://api.giphy.com/v1/gifs/search?q=';
     // searchURL += 'random';
     // searchURL += '&api_key=dc6zaTOxFJmzC';
     // console.log('random GET');
-
     $http.get('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=').then(function(response) {
       console.log('back with: ', response);
       vm.searchResult = response.data.data;
-  });//end get
-};//end getRando
+      toggleShow();
+    }); //end get
+  }; //end getRando
+
+  var toggleShow = function() {
+    vm.showRando = !vm.showRando;
+    console.log(vm.showRando);
+  };
 
   vm.getGifs = function() {
+    vm.showRando = false;
     var searchURL = 'http://api.giphy.com/v1/gifs/search?q=';
     searchURL += vm.search;
     searchURL += '&api_key=dc6zaTOxFJmzC';
@@ -39,7 +45,11 @@ function GiphyActivity($http) {
 
     $http.get(searchURL).then(function(response) {
       console.log('back with: ', response);
+
       vm.searchResult = response.data.data;
+
+      // toggleShow();
+      console.log(vm.showRando);
 
     });
   };
