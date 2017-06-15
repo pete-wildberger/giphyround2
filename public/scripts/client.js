@@ -20,6 +20,7 @@ function GiphyActivity(GetService) {
     //   });//end http
   }; // startup
   vm.displayRando = function() {
+    vm.showRando = false;
     GetService.getRando().then(function(response) {
       console.log('back with: ', response);
       vm.searchResult = response;

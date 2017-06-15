@@ -3,7 +3,7 @@ var express= require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
+var index = require('./modules/routes/index');
 // var gifs = require('./routes/gifs');
 
 //uses
