@@ -13,7 +13,7 @@
 
 <body ng-app="myApp" ng-cloak>
   <h1>GiphyActivity</h1>
-  <div ng-controller='GiphyActivity as ga' ng-init="ga.onReady();" class="container">
+  <div ng-controller='GiphyActivity as ga' class="container">
     <div class="row">
       <div class="col-md-12">
         <div id="buttonGroup">
@@ -26,15 +26,15 @@
       </div>
     </div>
     <div ng-show='ga.showRando' class="row">
-      <div class="col-md-3">
-        <img class="result" ng-src="{{ga.searchResult.image_url}}">
-        <button class="search"  ng-click='ga.removeRow($index)'>DELETE</button>
+      <div class="col-md-3" ng-repeat=" x in ga.searchResult">
+        <img class="result" ng-src="{{x.image_url}}">
+        <button class="search" ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
     <div ng-hide='ga.showRando' class="row">
       <div class="col-md-3" ng-repeat=" x in ga.searchResult">
         <img class="result" ng-src="{{x.images.downsized.url}}">
-        <button class="search"  ng-click='ga.removeRow($index)'>DELETE</button>
+        <button class="search" ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
 </body>
