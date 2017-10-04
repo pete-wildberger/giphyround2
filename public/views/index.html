@@ -8,6 +8,7 @@
   <script src="/scripts/client.js" charset="utf-8"></script>
   <script src="/scripts/services/get.service.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
@@ -27,13 +28,13 @@
     </div>
     <div ng-show='ga.showRando' class="row">
       <div class="col-md-3" ng-repeat=" x in ga.searchResult">
-        <img class="result" ng-src="{{x.image_url}}">
+        <a href="{{x.image_url}}"><img class="result" ng-src="{{x.image_url}}"></a>
         <button class="search" ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
     <div ng-hide='ga.showRando' class="row">
       <div class="col-md-3" ng-repeat=" x in ga.searchResult">
-        <img class="result" ng-src="{{x.images.downsized.url}}">
+        <a href="{{x.images.downsized.url}}"><img class="result" ng-src="{{x.images.downsized.url}}"></a>
         <button class="search" ng-click='ga.removeRow($index)'>DELETE</button>
       </div>
     </div>
